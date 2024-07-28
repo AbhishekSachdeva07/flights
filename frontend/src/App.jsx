@@ -24,7 +24,7 @@ function App() {
                 withCredentials: true
             })
             .then((response) => {
-                // console.log(response);
+                console.log(response);
                 if (response.data.isverifiedtoken) {
                     setIsLoggedIn(true);
                     setusername(response.data.username);
