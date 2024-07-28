@@ -20,7 +20,7 @@ import Generatejwttoken from "./utils/jwttoken.js"
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: 'https://finalproject-five-bay.vercel.app/',
+    origin: 'https://finalproject-five-bay.vercel.app',
     credentials: true // Allow cookies and headers from frontend
 }));
 app.use(cookieParser());
