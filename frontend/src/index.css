@@ -1,0 +1,6 @@
+.otpBox{
+  display: none;
+}
+.otpBoxactive{
+  display: block;
+}

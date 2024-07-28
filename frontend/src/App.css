@@ -1,0 +1,275 @@
+/* body main */
+*{
+  margin: 0;
+  font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+/* headerbox */
+.header-box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(254, 254, 254);
+  padding: 24px;
+  overflow: hidden;
+  margin-bottom: 1px;
+  box-shadow: 0px 0px 7px 0px;
+  /* z-index: 100; */
+}
+.header-box a{
+  color: black;
+  text-decoration: none;
+}
+.header-box a:hover{
+  color: red;
+}
+.left-header-box{
+  width: 50%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-left: 5%;
+}
+.right-header-box{
+  width: 49%;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.right-header-box-user{
+  width: 20%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  margin-right: 10%;
+}
+/* otp */
+.otpBox{
+  display: none;
+}
+.otpBoxactive{
+  display: block;
+}
+
+/* register page */
+.register-page{
+  height: 627px;
+  width: 100%;
+  background-color: rgb(252, 234, 253);
+}
+.register-form{
+  width: 22%;
+  height: 400px;
+  border: 1px solid;
+  background-color: white;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  padding: 30px;
+  text-align: center;
+  /* margin-top: 15px; */
+}
+.form-register{
+  padding: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.form-register input{
+  padding: 6px;
+  display: block;
+  width: 95%;
+  border: 1px solid grey;
+  height: 25px;
+}
+#register-btn
+{
+  padding: 10px;
+  background-color: rgb(252, 234, 253);
+  border: 0px;
+  margin-bottom: 12px;
+  box-shadow: 0px 0px 1px 0px;
+  width: 95%;
+}
+#register-btn:hover{
+  cursor: pointer;
+}
+
+#loginbutton{
+  border: 0.5px solid gray;
+  padding: 5px;
+  color: purple;
+  font-size: 13px;
+}
+#loginbutton:hover{
+  border: 1.5px solid purple;
+}
+
+/* banner box */
+.banner-box{
+  width: 100%;
+  height: 150px;
+  /* 054652 */
+  background-color: rgb(120, 69, 122); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0px 5px 0px;
+  color: white;
+}
+.banner-box b{
+  font-size: 40px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* line-height: 35px; */
+}
+/* home page banner */
+.homepagebanner{
+  margin-top: 2px;
+  width: 100%;
+  overflow: hidden;
+  /* border: 1px solid; */
+  height:300px;
+  /* background-color: rgb(252, 234, 253); */
+  background-image: url("https://res.cloudinary.com/dxbfhdvv7/image/upload/v1722072406/pixelcut-export_cle8du.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.homepagebanner img{
+  object-fit: cover;
+  height: 100%;
+  width: 90%;
+}
+#main-heading{
+  font-size: 40px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 45px;
+  overflow: hidden;
+}
+.left-homepagebanner{
+  width: 49%;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 100%;
+  color: white;
+  overflow: hidden;
+  margin-left: 35px;
+}
+.right-homepagebanner{
+  width: 35%;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 100%;
+  color: white;
+  overflow: hidden;
+}
+
+/* airport-working */
+.airport-working{
+  width: 85%;
+  height: 360px;
+  padding: 5px;
+  /* border: 1px solid; */
+  margin-top: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  /* border-radius: 20px; */
+  box-shadow: 0px 0px 1px 0px;
+  background-color: rgb(249, 251, 252);
+}
+.showing-airports{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  /* border: 1px solid; */
+  height: 300px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(1,1fr);
+  column-gap: 25px;
+  text-align: center;
+  overflow: hidden;
+}
+.airport-data{
+  width: 100%;
+  height: 100%;
+}
+.airport-data img{
+  width: 90%;
+  height: 65%;
+  object-fit: cover;
+  box-shadow: 0px 0px 10px 0px;
+  border: 1px solid gray;
+  padding: 3px;
+}
+
+/* advantage banner */
+.advantage-banner{
+  width: 100%;
+  /* border: 1px solid; */
+  height: 230px;
+  margin-top: 70px;
+  overflow: hidden;
+}
+.advantages-box{
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(1,1fr);
+  column-gap: 25px;
+  height: 100%;
+}
+
+.first-advantage-box{
+  width: 90%;
+  overflow: hidden;
+  height: 90%;
+  /* border: 1px solid grey; */
+  padding: 5px;
+}
+.first-advantage-img{
+  width: 100%;
+  height: 15%;
+  text-align: left;
+}
+.first-advantage-img img{
+  width: 100%;
+  height: 60%;
+  object-fit: contain;
+  object-position: left;
+}
+.first-advantage-heading{
+  width: 100%;
+  height: 10%;
+}
+.first-advantage-desc{
+  width: 100%;
+  height: 50%;
+  color: gray;
+}
+
+/* footer */
+.footer{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
