@@ -51,7 +51,7 @@ const Register = () => {
         setFreeze(true);
         setfillemail(false);
         try {
-            await axios.post("http://localhost:5000/otp", data, {
+            await axios.post("https://finalproject-1-xqyv.onrender.com/otp", data, {
                 withCredentials: true // Ensure cookies are included in the request
             });
         } catch (error) {
