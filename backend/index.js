@@ -38,6 +38,7 @@ app.get('/check-for-token', (req, res) => {
         email: '',
         username: ''
     };
+    console.log(req.cookies);
     if (req.cookies._tokenlocalhost) {
         const tokendata = req.cookies._tokenlocalhost;
         dataa.token = tokendata;
