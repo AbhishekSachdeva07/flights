@@ -27,6 +27,7 @@ const Register = () => {
             const response = await axios.post("https://finalproject-1-xqyv.onrender.com/check-otp", data, {
                 withCredentials: true 
             });
+            console.log(response);
             if (response.data.otpverified) {
                 if (response.data.existinguser) {
                     navigate('/welcome');
