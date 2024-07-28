@@ -8,7 +8,7 @@ const Logout = () => {
     useEffect(() => {
         const performLogout = async () => {
             try {
-                await axios.get("http://localhost:5000/logout", { withCredentials: true });
+                await axios.get("https://finalproject-1-xqyv.onrender.com/logout", { withCredentials: true });
                 navigate('/'); // Redirect to homepage after logout
             } catch (error) {
                 console.log(error);

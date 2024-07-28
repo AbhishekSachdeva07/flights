@@ -16,7 +16,7 @@ const Login = ()=>{
         e.preventDefault();
         //make condition for checking username
 
-        const addingUser = await axios.post("http://localhost:5000/add-data",data,{
+        const addingUser = await axios.post("https://finalproject-1-xqyv.onrender.com/add-data",data,{
             withCredentials:true
         });
         if(addingUser.data.duplicateEntry)

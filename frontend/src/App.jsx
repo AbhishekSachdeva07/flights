@@ -20,7 +20,7 @@ function App() {
 
     useEffect(() => {
         const checkToken = async () => {
-            await axios.get('http://localhost:5000/check-for-token', {
+            await axios.get('https://finalproject-1-xqyv.onrender.com/check-for-token', {
                 withCredentials: true
             })
             .then((response) => {

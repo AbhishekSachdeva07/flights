@@ -24,7 +24,7 @@ const Register = () => {
     const validateForm = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/check-otp", data, {
+            const response = await axios.post("https://finalproject-1-xqyv.onrender.com/check-otp", data, {
                 withCredentials: true 
             });
             if (response.data.otpverified) {
