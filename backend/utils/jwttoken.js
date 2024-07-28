@@ -16,7 +16,7 @@ const Generatejwttoken = (user)=>{
         expires: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000), // 5 day
         httpOnly: true,
         sameSite: 'Lax', // Adjust based on your needs
-        secure: false // Set to `true` for HTTPS environments
+        secure: true // Set to `true` for HTTPS environments
     };
 
     const data = {token:token,options:options};
