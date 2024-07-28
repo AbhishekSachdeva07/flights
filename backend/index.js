@@ -128,8 +128,9 @@ app.post('/check-otp', async (req, res) => {
 app.get('/logout',(req,res)=>{
     res.clearCookie('_tokenlocalhost',{
         httpOnly:true,
-        sameSite: 'Lax',
-        secure:false
+        sameSite: 'None',
+        secure:true,
+        domain: 'finalproject-1-xqyv.onrender.com'
     })
     res.status(200).json({message:"logout done"});
 })
