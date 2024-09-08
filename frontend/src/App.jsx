@@ -1,67 +1,80 @@
 import React, { useEffect, useState } from 'react';
-import Cookies from 'js-cookie';
 import './App.css';
 import { Navigate, Route, Routes, useNavigate,useLocation } from 'react-router-dom';
 import Home from './Pages/Home';
-import Register from './Pages/Register';
-import Welcome from './Pages/Welcome';
+import Error from './Pages/Error';
 import Login from './Pages/Login';
+import Signup from './Pages/Signup';
+import Welcome from './Pages/Welcome'
 import axios from 'axios';
-import Logout from './Pages/Logout';
-import Header from './Components/Header';
-import HeaderUser from './Components/Header.user';
-import Footer from './Components/Footer';
+import Flightpage from './Pages/Flightpage';
+
 
 function App() {
     const navigate = useNavigate();
     const location = useLocation();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [username,setusername] = useState("");
 
-    useEffect(() => {
-        const checkToken = async () => {
-            await axios.get('https://finalproject-1-xqyv.onrender.com/check-for-token', {
-                withCredentials: true
-            })
-            .then((response) => {
-                console.log(response);
-                if (response.data.isverifiedtoken) {
-                    setIsLoggedIn(true);
-                    setusername(response.data.username);
-                    navigate('/welcome',{state:{email:response.data.email,username:response.data.username}});
+    const [localstoragedata, setLocalstoragedata] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem("response-userdata")) || {};
+        } catch (error) {
+            console.error("Error parsing localStorage data:", error);
+            return {};
+        }
+    });
+
+    useEffect(()=>{
+        const fetchitems = ()=>{
+            try{
+                const data = JSON.parse(localStorage.getItem("response-userdata"));
+                if (data) {
+                    setLocalstoragedata(data);
                 }
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-        };
-
-        // Check token only on specific routes
-        if (location.pathname === '/register' || location.pathname === '/register/user') {
-            checkToken();
+            }
+            catch(error){
+                console.error("error");
+            }
         }
-        //error here need to check for token
-        if(location.pathname === '/')
-        {
-            setIsLoggedIn(false);
+        fetchitems();
+    },[location.pathname]);
+
+    useEffect(()=>{
+        const checkingtoken = async()=>{
+            try{
+                const checktoken = await axios.get('http://localhost:5000/check-for-token',{
+                    withCredentials:true
+                })
+                
+                if(checktoken.data.isverifiedtoken){
+                    if(location.pathname=='/login'){
+                        navigate(`/welcome/${checktoken.data.userData.username}`);
+                    }
+                }
+                else{
+                    navigate('/login');
+                }
+            }
+            catch(error){
+                console.error();
+            }
         }
-    }, [location.pathname]);
+        if (location.pathname!='/') {
+            checkingtoken();
+        }
 
-
+    },[location.pathname])
+    
 
     return (
         <>
-            {!isLoggedIn && <Header />}
-            {isLoggedIn && <HeaderUser data={username}/>}
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/register" element={!isLoggedIn ? <Register /> : <Navigate to='/welcome' />} />
-                <Route path="/register/user" element={<Login />} />
-                <Route path="/welcome" element={isLoggedIn ? <Welcome /> : <Navigate to='/register' />} />
-                <Route path="/logout" element={<Logout />}/>
-                
+                <Route path="/" element={<Home />} /> 
+                <Route path='/login' element={<Login/>}/>
+                <Route path='/signup/:email' element={<Signup/>}/>
+                <Route path='/welcome/:username' element={<Welcome/>}/>
+                <Route path='/flight/:from/:to/:userid/:flightid' element={<Flightpage/>}/>
+                <Route path='*' element={<Error/>}/>
             </Routes>
-            <Footer />
         </>
     );
 }

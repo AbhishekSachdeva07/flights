@@ -1,144 +1,79 @@
 // imports packages
 import express from "express";
 import cors from "cors";
-import nodemailer from "nodemailer";
 import cookieParser from "cookie-parser";
-import mongoose from "mongoose";
-import jsonwebtoken from "jsonwebtoken";
 import dotenv from 'dotenv';
+import {Server} from 'socket.io'
+import {createServer} from 'http'
 
 // Load environment variables
 dotenv.config();
 
 // import modules
 import Mongoose from "./Database/Mongoose.js";
-import userModel from "./Database/Models.js";
-import Sendemail from "./Helpers/Sendemail.js"
-import Generatejwttoken from "./utils/jwttoken.js"
+import userModel from "./Database/usermodel.js";
+import checktoken from "./routes/checktoken.js";
+import sendOtp from "./routes/sendOtp.js";
+import logout from './routes/logout.js'
+import login from "./routes/login.js";
+import signup from "./routes/signup.js";
+import findflights from "./routes/findflights.js";
+import uploadimage from "./routes/uploadimage.js";
+import checkusername from "./routes/checkusername.js";
+import addflight from "./routes/addflight.js";
+import checkflightuser from "./routes/checkflightuser.js";
+import addusertoflight from "./routes/addusertoflight.js";
+import checkinguseraccepted from "./routes/checkinguseraccepted.js";
+import acceptuser from "./routes/acceptuser.js";
+import getusers from "./routes/getusers.js";
+
+//import multer
+import mult from "./Helpers/Multer.js";
+import startioconnections from "./startioconnections.js";
 
 //app functionalities
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: 'https://finalproject-five-bay.vercel.app',
+    origin: 'http://localhost:5173',
     credentials: true // Allow cookies and headers from frontend
 }));
 app.use(cookieParser());
 
+//create server from http
+const server = createServer(app);
+
+
 // Connect to MongoDB
 Mongoose();
 
-// Define User Model
-const userData = userModel;
+// creating and starting io connections
+startioconnections(server);
 
-app.get('/check-for-token', (req, res) => {
-    const dataa = {
-        token: '',
-        isverifiedtoken: false,
-        email: '',
-        username: ''
-    };
-    console.log(req.cookies);
-    if (req.cookies._tokenlocalhost) {
-        const tokendata = req.cookies._tokenlocalhost;
-        dataa.token = tokendata;
-        jsonwebtoken.verify(tokendata, process.env.SECRET, (err, user) => {
-            if (user) {
-                dataa.isverifiedtoken = true;
-                dataa.email = user.email;
-                dataa.username = user.username;
-            }
-        });
-    } else {
-        //console.log("no token found");
-    }
-    res.status(200).json(dataa);
-});
-
-const otppp = {
-    otp: ''
-}
-app.post('/otp', (req, res) => {
-    const otpp = Math.floor(1000 + Math.random() * 9000);
-    otppp.otp = otpp;
-    Sendemail(req.body.email,otpp);
-});
-
-app.post('/add-data',async(req,res)=>{
-        const data = {
-            userAdded: false,
-            duplicateEntry: true,
-            _tokenlocalhost:""
-        }
-        try {
-            //checking user with username
-            const sameUsername = await userData.findOne({'username':req.body.username});
-            if(sameUsername)
-            {
-                data.duplicateEntry = true;
-                res.status(200).json(data);
-            }
-            else
-            {
-                const newUser = new userData(req.body);
-                await newUser.save();
-                console.log("data added");
-                const token = Generatejwttoken(newUser);
-                res.cookie("_tokenlocalhost", token.token,token.options);
-                data.userAdded = true;
-                data.duplicateEntry = false;
-                data._tokenlocalhost = req.cookies._tokenlocalhost;
-                res.status(200).json(data);
-            }
-            // details.token = token;
-        } catch (error) {
-            console.log("Error in adding data:", error);
-        }
-        // res.status(200).json(data);
-})
-
-app.post('/check-otp', async (req, res) => {
-    const details = {
-        existinguser: false,
-        otpverified: false,
-        token: ""
-    };
-    if (req.body.otp == otppp.otp) {
-        details.otpverified = true;
-    }
-    const email = req.body.email;
-    try {
-        // Find user by email
-        const user = await userData.findOne({ email });
-        if (user) {
-            details.existinguser = true;
-            const data = Generatejwttoken(user);
-            res.cookie('_tokenlocalhost',data.token,data.options);
-            details.token = req.cookies._tokenlocalhost
-        } else {
-            //nothing to perform
-        }
-    } catch (error) {
-        console.error("Error checking user:", error);
-    }
-    // Send response after processing
-    res.status(200).json(details);
-});
-
-app.get('/logout',(req,res)=>{
-    res.clearCookie('_tokenlocalhost',{
-        httpOnly:true,
-        sameSite: 'None',
-        secure:true,
-        domain: 'finalproject-1-xqyv.onrender.com'
-    })
-    res.status(200).json({message:"logout done"});
-})
+app.get('/check-for-token', checktoken);
+app.post('/otp',sendOtp);
+app.post('/login', login);
+app.get('/check-username/:username',checkusername);
+app.post('/upload-image',mult.single('image'),uploadimage);
+app.post('/signup',signup);
+app.get('/logout',logout);
+app.get('/flights/:state/:city/:date',findflights);
+app.post('/add-flight',addflight);
+app.post('/flight/checkuser/flightsapplied/:id',checkflightuser);
+app.post('/flight/adduser/flightapplied/:id',addusertoflight);
+app.post('/flight/useraccepted/:userid',checkinguseraccepted);
+app.get('/acceptuser/:flightid/:userid',acceptuser);
+app.post('/getusers/:userid',getusers);
 
 //start the server
 const startServer = async () => {
-    await app.listen(5000, () => {
-        console.log("App started at port 5000");
-    });
+    try{
+        await server.listen(5000, () => {
+            console.log("App started at port 5000");
+        });
+    }
+    catch(error){
+        console.error("Server not started");
+    }
 };
 startServer();

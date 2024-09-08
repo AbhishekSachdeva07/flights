@@ -13,10 +13,11 @@
   align-items: center;
   justify-content: space-between;
   background-color: rgb(254, 254, 254);
-  padding: 24px;
+  /* padding: 24px; */
   overflow: hidden;
   margin-bottom: 1px;
   box-shadow: 0px 0px 7px 0px;
+  height: 60px;
   /* z-index: 100; */
 }
 .header-box a{
@@ -49,67 +50,6 @@
   justify-content: space-around;
   overflow: hidden;
   margin-right: 10%;
-}
-/* otp */
-.otpBox{
-  display: none;
-}
-.otpBoxactive{
-  display: block;
-}
-
-/* register page */
-.register-page{
-  height: 627px;
-  width: 100%;
-  background-color: rgb(252, 234, 253);
-}
-.register-form{
-  width: 22%;
-  height: 400px;
-  border: 1px solid;
-  background-color: white;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  padding: 30px;
-  text-align: center;
-  /* margin-top: 15px; */
-}
-.form-register{
-  padding: 10px;
-  margin-top: 10px;
-  overflow: hidden;
-}
-.form-register input{
-  padding: 6px;
-  display: block;
-  width: 95%;
-  border: 1px solid grey;
-  height: 25px;
-}
-#register-btn
-{
-  padding: 10px;
-  background-color: rgb(252, 234, 253);
-  border: 0px;
-  margin-bottom: 12px;
-  box-shadow: 0px 0px 1px 0px;
-  width: 95%;
-}
-#register-btn:hover{
-  cursor: pointer;
-}
-
-#loginbutton{
-  border: 0.5px solid gray;
-  padding: 5px;
-  color: purple;
-  font-size: 13px;
-}
-#loginbutton:hover{
-  border: 1.5px solid purple;
 }
 
 /* banner box */
@@ -272,4 +212,383 @@
   justify-content: center;
   align-items: center;
   color: gray;
+}
+
+/* location check */
+.locationcheck{
+  width: 55%;
+  border-radius: 20px;
+  border: 1px solid gray;
+  height: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;  
+  background-color: rgb(254, 247, 255);
+  text-align: center;
+}
+.locations,.button-location{
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  justify-content: space-around;
+  align-items: center;
+}
+.locationcheck select
+{
+  width: 250px;
+  padding: 5px;
+}
+.locationcheck input{
+  width: 250px;
+  padding: 5px;
+}
+
+.button-location button{
+  width: 270px;
+  padding: 7px;
+  background-color: rgb(149, 98, 149);
+  border: 0px;
+  color: white;
+  cursor: pointer;
+}
+#loginbutton{
+  border: 1px solid rgb(149, 98, 149);
+  padding: 7px;
+  font-size: 13px;
+}
+
+.loginform select{
+  width: 90%;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* welcome page */
+.showing-available-flights{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.nodatapresent{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.showing-flights-data{
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+}
+.flight-data{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 230px;
+  border-radius: 15px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  /* padding: 5px; */
+  border: 1px solid;
+  overflow: hidden;
+}
+.flightdetails{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  background-color: rgb(149, 98, 149);
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+}
+.flightdetails img{
+  margin-left: 15px;
+  width: 60px;
+  object-fit: cover;
+  object-position: center;
+  height: 30px;
+}
+.left-flightdetails{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 43%;
+}
+.centreflightdetails{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 30%;
+  color: white;
+}
+.right-flightdetails{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+}
+.flightbody{
+  width: 100%;
+  height: 125px;
+  display: flex;
+  justify-content: space-around;
+}
+.details{
+  width: 35%;
+  height: 100px;
+  color: black;
+  margin-top: 20px;
+}
+.location-flightbody{
+  width: 60%;
+  height: 100px;
+  margin-left: 45px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+/*  */
+.flightfooter{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left-flight-footer{
+  width: 59%;
+  display: flex;
+  align-items: baseline;
+  justify-content: left;
+  margin-left: 25px;
+}
+.right-flight-footer{
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.flightfooter button{
+  width: 150px;
+  height: 35px;
+  padding: 4px;
+  margin-left: 10px;
+  margin-right: 5px;
+  background-color: rgb(149, 98, 149);
+  border: 1px solid gray;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.alert-box{
+  width: 25%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 240px;
+  border: 1px solid;
+  background-color: ghostwhite;
+}
+.crossbtn,.alert-btn{
+  width: 100%;
+  height: 18%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.crossbtn img{
+  width: 20px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+.alert-data{
+  height: 64%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.alert-btn button{
+  margin-right: 10px;
+  width: 70px;
+  background-color: rgb(149, 98, 149);
+  color: white;
+  border: 1px solid gray;
+  font-size: 12px;
+  padding: 5px;
+}
+.alert-data input{
+  width: 85%;
+  padding: 7px;
+  margin-bottom: 5px;
+}
+
+/* accepted users */
+.acceptedusers{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid gray;
+  height: 100%;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 1px;
+  margin-bottom: 10px;
+}
+.usergrids{
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+}
+.image-user{
+  width: 90%;
+  height: 100%;
+  overflow: hidden;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  text-align: center;
+  cursor: pointer;
+}
+.image-user img {
+  width: 100px; /* Set a fixed width */
+  height: 100px; /* Ensure height is equal to width */
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid purple;
+  border-radius: 50%; /* Ensures a perfect circle */
+}
+
+
+/* chat bot css */
+.chat-box {
+  width: 30%;
+  height: 70%;
+  border-radius: 5px;
+  border: 1px solid;
+  box-shadow: 0px 0px 2px 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+
+  background-color: ghostwhite;
+}
+@media only screen and (max-width:600px) {
+  .chat-box{
+      width: 90%;
+      height: 600px;
+  }
+}
+.chat-box-heading
+{
+  /* text-align: center; */
+  height: 10%;
+  width: 100%;
+  color: gray;
+  font-size: 12px;
+  /* margin-top: 2px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(149, 98, 149);
+  color: rgb(242, 231, 231);
+}
+.left-chatheading{
+  width: 59%;
+  display: flex;
+  align-items: center;
+}
+.left-chatheading img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid purple;
+  margin-left: 10px;
+}
+.right-chatheading img{
+  width: 25px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.chat-box-chats{
+  width: 100%;
+  height: 96%;
+}
+.chats-chat-box{
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 85%;
+  width: 100%;
+  background-color: ghostwhite;
+}
+.input-chat-box{
+  width: 100%;
+  height: 10%;
+  margin-top: 8px;
+  text-align: center;
+}
+.input-chat-box input{
+  width: 80%;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 5px 0px 0px 5px;
+}
+.input-chat-box button{
+  padding: 5px;
+  width: 16%;
+  border: 1px solid gray;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  background-color: rgb(234, 250, 211);
+}
+.input-chat-box button:active{
+  background-color: rgb(255, 234, 234);
+  color: black;
+}
+
+
+/* chats */
+
+.chats-chat-box span{
+  background-color: rgb(249, 243, 236);
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 5px;
+}
+.user-chats,.otheruser-chats,.newuser-chats{
+  width: 90%;
+  display: flex;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  align-items: center;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.user-chats{
+  justify-content: right;
+}
+.otheruser-chats{
+  justify-content: left;
+}
+.newuser-chats{
+  justify-content: center;
 }

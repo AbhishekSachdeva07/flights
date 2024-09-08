@@ -6,15 +6,21 @@ import HomepageBanner from '../Components/HomepageBanner';
 import Airports from '../Components/Airports';
 import Advantagebanner from '../Components/Advantagebanner';
 import Banner from '../Components/Banner'
+import Header from '../Components/Header';
+import Footer from '../Components/Footer';
+import Locationcheck from '../Components/Locationcheck';
 const Home = () => {
     const bannerData = "Save your money by carpooling at just few clicks.";
     return (
         <>
             {/* <Link to='/register'>Login/Signup</Link> */}
+            <Header/>
             <HomepageBanner/>
+            <Locationcheck/>
             <Advantagebanner/>
             <Banner text={bannerData}/>
             <Airports />
+            <Footer />
         </>
     );
 };

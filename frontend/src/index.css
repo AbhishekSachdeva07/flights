@@ -1,6 +1,680 @@
-.otpBox{
-  display: none;
+/* expense tracker css */
+
+.expensetracker-maindiv{
+    width: 87%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    border: 1px solid;
+    margin-top: 25px;
+    margin-bottom: 2px;
 }
-.otpBoxactive{
-  display: block;
+.heading-expensetracker{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
+
+.adddata-expensetrackerdiv{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 60px;
+    margin-top: 5px;
+}
+
+#newdata-btn
+{
+    margin-right: 20px;
+    padding: 8px;
+    background-color: rgb(184, 219, 251);
+    border: 0px;
+    box-shadow: 0px 0px 2px 0px;
+    width: 190px;
+    cursor: pointer;
+}
+
+.data-blocks-expensetracker{
+    width: 100%;
+    height: 140px;
+    /* border: 1px solid; */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(1,1fr);
+    overflow: hidden;
+    margin-top: 10px;
+}
+.showingdata-expensetracker{
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid gray;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: 70% 20% 10%;
+    border-radius: 18px;
+    background-color: aliceblue;
+}
+.value-box-expensetracker{
+    font-size: 50px;
+}
+.footer-box-expensetracker{
+    font-size: 12px;
+    color: gray;
+}
+
+.recent-transactions-added{
+    margin-top: 25px;
+}
+
+.data-recent-transactions{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(1,1fr);
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+/* expense popup */
+.addexpensepop-up{
+    width: 27%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    border: 1px solid;
+    transform: translate(-50%,-50%);
+    background-color: aliceblue;
+    text-align: center;
+}
+.addexpensepop-up input{
+    width: 85%;
+    padding: 5px;
+    margin: 15px 0px 5px 0px;
+}
+
+.addexpensepop-up select{
+    padding: 5px;
+    width: 50%;
+    margin-top: 15px;
+}
+.closebtn-popup{
+    width: 100%;
+    overflow: hidden;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.closebtn-popup img{
+    margin-right: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#expensebtn{
+    width: 80%;
+    padding: 6px;
+    margin-top: 25px;
+    background-color: rgb(184, 219, 251);
+    border: 0px;
+    box-shadow: 0px 0px 2px 0px;
+}
+
+.expense-visuals{
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+}
+
+.expense-visuals-grid{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 50% 50%;
+    column-gap: 30px;
+    row-gap: 30px;
+    overflow: hidden;
+    text-align: center;
+}
+.grid-expense-data{
+    overflow: hidden;
+    text-align: center;
+}
+/* .grid-expense-data p{
+
+} */
+
+/* my profile */
+.profile{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(184, 219, 251);
+}
+
+.main-profile-struct{
+    width: 27%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+}
+.struct-profile{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 25px;
+    width: 100%;
+    height: 100%;
+    border: 1px grey;
+    background-color: aliceblue;
+    box-shadow: 0px 0px 2px 0px;
+}
+
+/* inputs */
+.struct-profile input{
+    width: 90%;
+    padding: 8px;
+    margin: 15px 0px 5px 0px;
+    border: 1px solid grey;
+}  
+.struct-profile input[type = "checkbox"]{
+    width: 15px;
+    padding: 15px;
+    margin-right: 10px;
+}
+#btn-profile {
+    width: 99%;
+    margin-top: 9px;
+    padding: 7px;
+    border: 0px;
+    background-color: rgb(184, 219, 251);
+    height: 34px;
+    box-shadow: 0px 0px 2px 0px;
+    cursor: pointer;
+}
+#btn-profile:active
+{
+    background-color: rgb(142, 197, 249);
+    color: black;
+}
+
+.changes-msg{
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* delete popup */
+
+.delete-popup{
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    border: 1px solid grey;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: aliceblue;
+    padding: 5px;
+    overflow: hidden;
+    display: none;
+}
+.msg-delete{
+    margin-top: 5px;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+}
+.input-btn{
+    text-align: center;
+    margin-top: 15px;
+}
+.input-btn input{
+    width: 90%;
+    padding: 4px;
+}
+.input-btn button{
+    width: 60%;
+    margin-top: 19px;
+    padding: 7px;
+    background-color: rgb(184, 219, 251);
+    border: 0px;
+    cursor: pointer;
+}
+.input-btn button:active{
+    background-color: rgb(142, 197, 249);
+}
+
+.delete-popup-active{
+    display: block;
+    width: 30%;
+    height: 30%;
+    position: absolute;
+    border: 1px solid grey;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: aliceblue;
+    padding: 5px;
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    font-family: Assistant, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 700px) {
+    *{
+        overflow-x: hidden;
+    }
+}
+
+
+/* navbars */
+.main-navbar
+{
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px 0px;
+    background-color: white;
+}
+.left-navbar{
+    width: 49%;
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.left-navbar img{
+    width: 100px;
+    margin-left: 60px;
+}
+#loginsignupbtn{
+    padding: 7px;
+    border: 1px solid rgb(255, 78, 108);
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+/* for login pages */
+.left-navbar-hidden{
+    width: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.left-navbar-hidden img{
+    width: 100px;
+    margin-left: 60px;
+}
+.right-navbar-hidden{
+    width: 0%;
+    display: none;
+}
+/*  */
+.right-navbar a{
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+}
+.right-navbar{
+    width: 49%;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.right-navbar img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid purple;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 50px;
+    margin-left: 10px;
+}
+@media only screen and (max-width:600px) {
+    .main-navbar{
+        box-shadow: 0px 0px 0px 0px;
+    }
+    .left-navbar{
+        width: 100%;
+        justify-content: center;
+    }
+    .left-navbar img,.left-navbar-hidden img{
+        margin-left: 0px;
+    }
+    .right-navbar{
+        display: none;
+    }
+}
+/* down nav bar */
+.main-downbar{
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    overflow: hidden;
+    background-color: ghostwhite;
+    border-bottom: 1px solid;
+}
+.main-downbar img{
+    width: 25px;
+}
+.hiden-downbar{
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: ghostwhite;
+}
+.links-downbar{
+    width: 100%;
+    height: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.links-further{
+    width: 97%;
+    padding: 5px;
+    margin: 5px 0px 5px 0px;
+}
+.links-downbar a{
+    text-decoration: none;
+    color: darkblue;
+}
+.links-downbar a::after{
+    color: red;
+}
+.hiden-downbar-hide{
+    display: none;
+}
+@media only screen and (max-width:700px) {
+    .main-downbar{
+        display: flex;
+    }
+}
+/* welcome navbar */
+#main-email{
+    cursor: default;
+    padding: 7px;
+    border: 1px solid orange;
+    margin-right: 15px;
+}
+
+/* home page */
+.homepagephoto{
+    margin-top: 2px;
+    width: 100%;
+    overflow: hidden;
+    height: 480px;
+    /* background-image: url("https://res.cloudinary.com/dxbfhdvv7/image/upload/v1722667235/what-is-ERP_lbhlwk.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+.homepagephoto img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}   
+
+@media only screen and (max-width:600px){
+    .homepagephoto{
+        height: 220px;
+    }
+}
+/* featues */
+.features{
+    width: 100%;
+    margin-top: 60px;
+    overflow: hidden;
+    height: 300px;
+}
+.gridfeatures{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(1,1fr);
+    column-gap: 40px;
+}
+.featuresgriddata{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: 13% 10% 60%;
+    padding: 15px;
+    /* border: 1px solid;
+    box-shadow: 0px 0px 5px 0px; */
+    overflow: hidden;
+}
+.logo,.mainheading{
+    overflow: hidden;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+.description{
+    overflow: hidden;
+    color: gray;
+}
+.logo img{
+    width: 25px;
+}
+
+@media only screen and (max-width:600px){
+    .features{
+        height: 900px;
+    }
+    .gridfeatures{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(4,1fr);
+        padding: 0px;
+        column-gap: 0px;
+    }
+    .featuresgriddata{
+        padding: 5px;
+        grid-template-rows: 15% 15% 60%;
+    }
+}
+
+/* info banner */
+.info-banner{
+    width: 100%;
+    height: 130px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: whitesmoke;
+}
+@media only screen and (max-width:600px){
+    .info-banner{
+        font-size: 14px;
+        height: 100px
+    }
+}
+/* showcase data */
+.showcase-data
+{
+    width: 100%;
+    height: 300px;
+    margin-top: 7px;
+    margin-bottom: 35px;
+}
+.mainshowcase{
+    width: 73%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(1,1fr);
+    overflow: hidden;
+    color: black;
+
+}
+.showcase-first{
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.showcase-second{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width:600px){
+    .mainshowcase{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+    .showcase-data{
+        height: 700px;
+        overflow: hidden;
+    }
+}
+/* welcome page */
+/* main grid display welcome page*/
+
+.maingrid-display{
+    height: auto;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 70px;
+    /* transform: translate(-50%,-50%); */
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    row-gap: 45px;
+    padding: 30px;
+    background-color: rgb(184, 219, 251);
+    box-shadow: 0px 0px 2px 0px;
+}
+.display-grid{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.display-objects{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    padding: 15px;
+    background-color: white;
+}
+
+@media only screen and (max-width:600px) {
+    .maingrid-display{
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(2,1fr);
+        width: 90%;
+    }
+}
+
+/* footer */
+.footer{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* navbarpage */
+.mainbox-login{
+    width: 100%;
+    /* height: 100%; */
+    text-align: center;
+    /* margin-top: 45px; */
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #FEF7FF;
+}
+.loginform{
+    width: 25%;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    margin-top: 60px;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px;
+}
+.loginform input{
+    width: 85%;
+    padding: 7px;
+    margin-bottom: 5px;
+}
+#btn {
+    width: 89%;
+    margin-top: 9px;
+    padding: 7px;
+    border: 0px;
+    background-color: rgb(184, 219, 251);
+    height: 35px;
+    box-shadow: 0px 0px 2px 0px;
+    cursor: pointer;
+}
+#btn:active
+{
+    background-color: rgb(142, 197, 249);
+    color: black;
+}
+.loginform form{
+    margin-top: 25px;
+}
+.otpcentre{
+    margin-top: 20px;
+}
+.loginform input[type = "checkbox"]{
+    width: 15px;
+    padding: 15px;
+    margin-right: 10px;
+}
+
+@media only screen and (max-width:600px) {
+    .loginform{
+        width: 95%;
+    }
+    .mainbox-login{
+        min-height: 100vh;
+    }
+    .loginform input{
+        width: 84%;
+    }
+}
+
+/* welcome page */
+.welcome-page{
+    margin-top: 0px;
+    height: 100%;
+    overflow: hidden;
+    /* background-color: rgb(184, 219, 251); */
+}
+
+/*  */
