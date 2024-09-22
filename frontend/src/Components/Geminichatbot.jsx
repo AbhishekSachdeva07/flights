@@ -3,7 +3,7 @@ import  {io} from "socket.io-client"
 
 const GeminiChatBot = ({data,userdata,bookticket,setbookticket})=>{
 
-    const socket = useMemo(()=> io("http://localhost:5000"),[]);
+    const socket = useMemo(()=> io("https://flights-lmrv.onrender.com"),[]);
 
     const [msginput, setmsginput] = useState("");
     const [msg, setmsg] = useState([]);
