@@ -33,7 +33,7 @@ const Login = () => {
         e.preventDefault();
         seterror(false);
         try {
-            const otpVerResponse = await axios.post('http://localhost:5000/login', {
+            const otpVerResponse = await axios.post('https://flights-lmrv.onrender.com/login', {
                 email: userData.email,
                 otp: otp
             }, {
@@ -61,7 +61,7 @@ const Login = () => {
         if(userData.email.includes('@') && userData.email.includes('.'))
         {
             try {
-                const response = await axios.post('http://localhost:5000/otp', { email: userData.email }, {
+                const response = await axios.post('https://flights-lmrv.onrender.com/otp', { email: userData.email }, {
                     withCredentials: true
                 });
                 console.log('Send OTP Response:', response.data);
