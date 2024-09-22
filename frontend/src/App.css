@@ -266,6 +266,15 @@
   margin-bottom: 5px;
 }
 
+@media only screen and (max-width:700px) {
+  .locationcheck{
+    width: 95%;
+  }
+  .locationcheck select,.locationcheck input{
+    width: 120px;
+  }
+}
+
 /* welcome page */
 .showing-available-flights{
   width: 80%;
@@ -356,6 +365,40 @@
   margin-top: 5px;
   display: flex;
   align-items: center;
+}
+.location-flightbody span{
+  font-size: 35px;
+}
+
+
+@media only screen and (max-width:700px) {
+  .showing-flights-data,.showing-available-flights{
+    width: 97%;
+    font-size: 10px;
+  }
+  .flight-data{
+    width: 100%;
+    height: 250px;
+  }
+  .flightfooter{
+    height: 100px;
+  }
+  .right-flight-footer button{
+    height: 70px;
+  }
+  .location-flightbody{
+    margin-left: 0px;
+  }
+  .right-flightdetails{
+    margin-right: 7px;
+  }
+  .location-flightbody{
+    width: 50%;
+    margin-left: 0px;
+  }
+  .location-flightbody span{
+    font-size: 20px;
+  }
 }
 
 /*  */
