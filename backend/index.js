@@ -37,7 +37,7 @@ import bookcab from "./routes/bookcab.js";
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: 'https://flights-tau.vercel.app',
+    origin: 'https://ridexmatchh.netlify.app',
     credentials: true // Allow cookies and headers from frontend
 }));
 app.use(cookieParser());
