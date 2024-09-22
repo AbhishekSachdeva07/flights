@@ -57,7 +57,7 @@ const Signup = () => {
 
         try {
             // Check for username availability
-            const checkUsername = await axios.get(`http://localhost:5000/check-username/${userData.username}`, {
+            const checkUsername = await axios.get(`https://flights-lmrv.onrender.com/check-username/${userData.username}`, {
                 withCredentials: true
             });
             console.log(checkUsername)
@@ -67,7 +67,7 @@ const Signup = () => {
                 const formData = new FormData();
                 formData.append("image", file);
 
-                const uploadResponse = await axios.post('http://localhost:5000/upload-image', formData, {
+                const uploadResponse = await axios.post('https://flights-lmrv.onrender.com/upload-image', formData, {
                     withCredentials: true
                 });
 
@@ -75,7 +75,7 @@ const Signup = () => {
                     userData.profilephoto = uploadResponse.data.imageurl;
 
                     // Now upload user data to database
-                    const newUserResponse = await axios.post('http://localhost:5000/signup', userData, {
+                    const newUserResponse = await axios.post('https://flights-lmrv.onrender.com/signup', userData, {
                         withCredentials: true
                     });
 
