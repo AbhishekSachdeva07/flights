@@ -26,7 +26,7 @@ const geminimodel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 const startioconnections = (server) => {
     const io = new Server(server, {
         cors: {
-            origin: 'https://flights-tau.vercel.app',
+            origin: 'https://ridexmatchh.netlify.app',
             methods: ["GET", "POST"],
             credentials: true
         }
