@@ -30,7 +30,7 @@ const Welcomenavbar = ()=>{
     },[location.pathname]);
 
     const performlogout = async()=>{
-        const logout = await axios.get('http://localhost:5000/logout',{
+        const logout = await axios.get('https://flights-lmrv.onrender.com/logout',{
             withCredentials:true
         });
         if(logout.data.logout){
