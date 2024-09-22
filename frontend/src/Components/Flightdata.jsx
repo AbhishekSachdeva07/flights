@@ -29,7 +29,7 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
 
     const checkflightaddedtodb = async (data) => {
         try {
-            const addingflightdata = await axios.post('http://localhost:5000/add-flight', data, {
+            const addingflightdata = await axios.post('https://flights-lmrv.onrender.com/add-flight', data, {
                 withCredentials: true
             });
             console.log(data);
@@ -43,7 +43,7 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
         checkflightaddedtodb(data);
         //checking whether accepted or not
         try{
-            const checkinguseraccepted = await axios.post(`http://localhost:5000/flight/useraccepted/${localstoragedata?.userData?._id}`,data,{
+            const checkinguseraccepted = await axios.post(`https://flights-lmrv.onrender.com/flight/useraccepted/${localstoragedata?.userData?._id}`,data,{
                 withCredentials:true
             });
             if(checkinguseraccepted.data.useraccepted){
@@ -64,7 +64,7 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
     const applyforflight = async (data) => {
         checkflightaddedtodb(data);
         try {
-            const checkinguseraccepted = await axios.post(`http://localhost:5000/flight/useraccepted/${localstoragedata?.userData?._id}`,data,{
+            const checkinguseraccepted = await axios.post(`https://flights-lmrv.onrender.com/flight/useraccepted/${localstoragedata?.userData?._id}`,data,{
                 withCredentials:true
             });
             if(checkinguseraccepted.data.useraccepted){
@@ -73,7 +73,7 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
             }
 
             //checking user first
-            const checkperson = await axios.post(`http://localhost:5000/flight/checkuser/flightsapplied/${localstoragedata.userData._id}`,data, {
+            const checkperson = await axios.post(`https://flights-lmrv.onrender.com/flight/checkuser/flightsapplied/${localstoragedata.userData._id}`,data, {
                 withCredentials: true
             });
             console.log("checkperos",checkperson);
