@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { io } from "socket.io-client";
 
 const ChatingModel = ({data,userdata,anotheruserdata,chatingdisplay,setchatingdisplay})=>{
-    const socket = useMemo(() => io("http://localhost:5000"), []);
+    const socket = useMemo(() => io("https://flights-lmrv.onrender.com"), []);
 
     const [msginput, setmsginput] = useState("");
     const [msg, setmsg] = useState([]);
