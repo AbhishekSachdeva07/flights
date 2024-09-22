@@ -93,7 +93,7 @@ const Locationcheck = ({setflightdata}) => {
             return;
         }
         setAlert(false);
-        const finddata = await axios.get(`http://localhost:5000/flights/${userdata.tostate}/${userdata.tocity}/${userdata.date}`,{
+        const finddata = await axios.get(`https://flights-lmrv.onrender.com/flights/${userdata.tostate}/${userdata.tocity}/${userdata.date}`,{
             withCredentials:true
         });
         setflightdata(finddata.data);
