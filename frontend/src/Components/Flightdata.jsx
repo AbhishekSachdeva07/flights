@@ -96,7 +96,7 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
         }
         try {
             const flightNoEncoded = encodeURIComponent(flightdetails?.flight_details?.tripid);
-            const url = `http://localhost:5000/flight/adduser/flightapplied/${flightNoEncoded}/${localstoragedata.userData.username}`;
+            const url = `https://flights-lmrv.onrender.com/flight/adduser/flightapplied/${flightNoEncoded}/${localstoragedata.userData.username}`;
             const addusertoflight = await axios.post(url, userData, {
                 withCredentials: true
             });
