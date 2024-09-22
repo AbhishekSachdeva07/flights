@@ -30,6 +30,8 @@ import getusers from "./routes/getusers.js";
 //import multer
 import mult from "./Helpers/Multer.js";
 import startioconnections from "./startioconnections.js";
+import getotherusers from "./routes/getotherusers.js";
+import bookcab from "./routes/bookcab.js";
 
 //app functionalities
 const app = express();
@@ -60,10 +62,12 @@ app.get('/logout',logout);
 app.get('/flights/:state/:city/:date',findflights);
 app.post('/add-flight',addflight);
 app.post('/flight/checkuser/flightsapplied/:id',checkflightuser);
-app.post('/flight/adduser/flightapplied/:id',addusertoflight);
+app.post('/flight/adduser/flightapplied/:id/:username',addusertoflight);
 app.post('/flight/useraccepted/:userid',checkinguseraccepted);
 app.get('/acceptuser/:flightid/:userid',acceptuser);
 app.post('/getusers/:userid',getusers);
+app.post('/getotherusers/:userid',getotherusers);
+app.get('/book-cab/:cityname/:cabnumber',bookcab);
 
 //start the server
 const startServer = async () => {

@@ -5,7 +5,7 @@ const Generatejwttoken = (user)=>{
     const token = jsonwebtoken.sign(
         {
             userData:user
-        }, process.env.SECRET, { expiresIn: "5h" }
+        }, process.env.SECRET, { expiresIn: "5d" }
     );
 
     // Set the cookie with the token

@@ -34,6 +34,7 @@ const Welcome = ()=>{
             <Welcomenavbar/>
             <Locationcheck setflightdata = {setflightdata}/>
             <Flightdata flightdata={flightdata} localstoragedata={localstoragedata}/>
+            {/* <Acceptedflights localstoragedata={localstoragedata}/> */}
         </>
     )
 }

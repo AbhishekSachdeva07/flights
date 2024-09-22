@@ -45,6 +45,7 @@ function App() {
                     withCredentials:true
                 })
                 
+                
                 if(checktoken.data.isverifiedtoken){
                     if(location.pathname=='/login'){
                         navigate(`/welcome/${checktoken.data.userData.username}`);

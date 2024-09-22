@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Flightdata = ({ flightdata, localstoragedata }) => {
@@ -10,7 +10,9 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
         userdetails:{
             firstname: '',
             secondname: '',
-            refnum: ''
+            refnum: '',
+            custype: '',
+            destination: ''
         }
     });
     const navigate = useNavigate();
@@ -23,12 +25,14 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
             }
         }));
     };
+    const [cities,setcities] = useState([]);
 
     const checkflightaddedtodb = async (data) => {
         try {
             const addingflightdata = await axios.post('http://localhost:5000/add-flight', data, {
                 withCredentials: true
             });
+            console.log(data);
             setflightdetails(data);
         } catch (error) {
             console.error("Error adding flight to database:", error);
@@ -42,7 +46,6 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
             const checkinguseraccepted = await axios.post(`http://localhost:5000/flight/useraccepted/${localstoragedata?.userData?._id}`,data,{
                 withCredentials:true
             });
-            console.log(data);
             if(checkinguseraccepted.data.useraccepted){
                 sessionStorage.setItem(data.flight_details.tripid,JSON.stringify(data));
                 navigate(`/flight/${data.from.location}/${data.to.location}/${localstoragedata?.userData?._id}/${encodeURIComponent(data.flight_details.tripid)}`);
@@ -85,9 +88,15 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
     };
 
     const finalapply = async () => {
+        //checking data first
+        console.log(userData);
+        if(userData.userdetails.firstname=="" || userData.userdetails.secondname==="" || userData.userdetails.refno==="" || userData.userdetails.custype==="" || userData.userdetails.destination===""){
+            alert("Fill the details first to continue further...");
+            return;
+        }
         try {
             const flightNoEncoded = encodeURIComponent(flightdetails?.flight_details?.tripid);
-            const url = `http://localhost:5000/flight/adduser/flightapplied/${flightNoEncoded}`;
+            const url = `http://localhost:5000/flight/adduser/flightapplied/${flightNoEncoded}/${localstoragedata.userData.username}`;
             const addusertoflight = await axios.post(url, userData, {
                 withCredentials: true
             });
@@ -101,6 +110,26 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
             console.error("Error finalizing flight application:", error);
         }
     };
+
+    useEffect(()=>{
+        const findcities = async()=>{
+            var config = {
+                method: 'get',
+                url: 'https://api.countrystatecity.in/v1/countries/IN/cities',
+                headers: {
+                  'X-CSCAPI-KEY': 'eG5sUFRySGcwNXpsRlExZVpLZ3EyVnk2MUduUVdaVWdIQWFQdzdBRQ=='
+                }
+              };
+              await axios(config)
+                .then(function (response) {
+                    setcities(response.data);
+                })
+                .catch(function (error) {
+                console.log(error);
+                });
+        }
+        findcities();
+    })
 
     return (
         <>
@@ -135,6 +164,20 @@ const Flightdata = ({ flightdata, localstoragedata }) => {
                             onChange={makechanges}
                             value={userData.refno}
                         />
+                        <select name="custype" id="custype" onChange={makechanges} value={userData.custype}>
+                            <option value="">Tourist/Locals</option>
+                            <option value="tourist">Tourist</option>
+                            <option value="locals">Locals</option>
+                        </select><br />
+                        <select name="destination" id="destination" onChange={makechanges} value={userData.destination}>
+                            <option value="">Places u would love to visit</option>
+                            {
+                                cities.map((data,index)=>(
+                                    <option value={data.name} id={index}>{data.name}</option>
+                                ))
+                            }
+                        </select>
+
                     </div>
                     <div className="alert-btn">
                         <button onClick={finalapply}>Apply</button>

@@ -4,6 +4,10 @@ import Flightticket from "../Components/Flightticket";
 import { useLocation } from "react-router-dom";
 import Acceptedusers from "../Components/AcceptedUsers";
 import ChatingModel from "../Components/Chatingmodel";
+import Groupchat from "../Components/Groupchat";
+import Groupchatingmodel from "../Components/GroupChatingModel";
+import Otherpeople from "../Components/Otherpeople";
+import GeminiChatBot from "../Components/Geminichatbot";
 
 const Flightpage = ()=>{
     const url = decodeURIComponent(window.location.href);
@@ -45,14 +49,21 @@ const Flightpage = ()=>{
 
     const [anotheruserdata,setanotheruserdata] = useState({});
     const [chatingdisplay,setchatingdisplay] = useState(false);
+    const [groupchatdisplay,setgroupchatdisplay] = useState(false);
+    const [bookticket,setbookticket] = useState(false);
 
 
     return(
         <>
             <Welcomenavbar/><br />
-            <Flightticket data={sessiondata} userdata={localstoragedata}/>
+            <Flightticket data={sessiondata} userdata={localstoragedata} setbookticket={setbookticket}/>
             <Acceptedusers data={sessiondata} userdata={localstoragedata} setanotheruserdata={setanotheruserdata} setchatingdisplay={setchatingdisplay}/>
+            <Otherpeople data={sessiondata} userdata={localstoragedata} setchatingdisplay={setchatingdisplay} setanotheruserdata={setanotheruserdata}/>
+            <GeminiChatBot data={sessiondata} userdata={localstoragedata} bookticket={bookticket} setbookticket={setbookticket}/>
+            <Groupchat data={sessiondata} userdata={localstoragedata} setgroupchatdisplay={setgroupchatdisplay}/>
             {chatingdisplay&&<ChatingModel data={sessiondata} userdata={localstoragedata} anotheruserdata={anotheruserdata} chatingdisplay={chatingdisplay} setchatingdisplay={setchatingdisplay}/>}
+            {groupchatdisplay&& <Groupchatingmodel data={sessiondata} userdata={localstoragedata} groupchatdisplay={groupchatdisplay} setgroupchatdisplay={setgroupchatdisplay}/>}
+
         </>
     )
 }

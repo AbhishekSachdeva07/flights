@@ -1,10 +1,12 @@
 import flightmodel from "../Database/flightsmodel.js";
+import userModel from "../Database/usermodel.js";
 import userDataResponse from "../Response.js";
 
 const addusertoflight = async(req, res) => {
     const userResponse = { ...userDataResponse };
-    const id  = decodeURIComponent(req.params.id); // Flight ID or flight number from params
-    const userData = req.body;  // User data from request body
+    const id  = decodeURIComponent(req.params.id); 
+    const username = decodeURIComponent(req.params.username);
+    const userData = req.body;  
     console.log(userData);
     try {
         console.log(id);
@@ -20,10 +22,18 @@ const addusertoflight = async(req, res) => {
             return res.status(404).json(userResponse);
         }
 
-        // Add the user data to the flight's userapplied array
-        findflight.userapplied.push(userData); // Use push instead of append
-        
-        await findflight.save(); // Save the updated flight document
+        findflight.userapplied.push(userData);
+
+        const finduser = await userModel.findOne({
+            username:username
+        });
+        if(finduser){
+            finduser.flightsapplied.push({
+                flightid: findflight._id
+            })
+        }
+        await findflight.save();
+        await finduser.save(); // Save the updated flight document
        
         // Respond with success
         userResponse.useraddedtoflight = true;

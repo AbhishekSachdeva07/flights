@@ -16,7 +16,7 @@ const signup = async(req,res)=>{
         userResponse.userData = newUser;
         userResponse.duplicateEntry = false;
         userResponse.token = req.cookies._tokenlocalhost;
-        Welcomemail(userData.email);
+        Welcomemail(userData.email,userData.username);
         return res.status(200).json(userResponse);
     } catch (error) {
         userResponse.error = error.message;

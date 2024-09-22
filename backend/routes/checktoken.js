@@ -14,6 +14,7 @@ const checktoken = (req, res) => {
                 return res.status(200).json(userResponse);                     
             }
             else{
+                console.log(user);
                 userResponse.isverifiedtoken = false; 
                 return res.status(404).json(userResponse);
             }

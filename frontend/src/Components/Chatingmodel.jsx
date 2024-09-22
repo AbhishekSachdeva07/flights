@@ -10,10 +10,8 @@ const ChatingModel = ({data,userdata,anotheruserdata,chatingdisplay,setchatingdi
     useEffect(()=>{
         socket.emit("join",userdata.userData.username);
         socket.emit("start-indiv-chat",userdata.userData.username,anotheruserdata?.username,data.flight_details.tripid);
-        console.log(anotheruserdata.username);
         socket.on("chat-history",(oldchats)=>{
             setmsg(oldchats);
-            console.log(msg);
         })
         socket.on("connection",()=>{
 

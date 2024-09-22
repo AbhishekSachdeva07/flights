@@ -33,7 +33,12 @@ const userDataResponse = {
     flightusersfetched:false,
     flightuserdetails:{
         
-    }
+    },
+    otherflightusers:false,
+    otherflightusersdetails:{
+        
+    },
+    cabbooked:false
 }
 
 export default userDataResponse;

@@ -4,6 +4,12 @@ const flightsmodel = new mongoose.Schema({
     flight_details:{
         
     },
+    from:{
+
+    },
+    to:{
+
+    },
     userapplied:[
         {
             cliendid:{
@@ -20,6 +26,14 @@ const flightsmodel = new mongoose.Schema({
                     required:true
                 },
                 refnum:{
+                    type:String,
+                    required:true
+                },
+                custype:{
+                    type:String,
+                    required:true
+                },
+                destination:{
                     type:String,
                     required:true
                 }
@@ -42,6 +56,14 @@ const flightsmodel = new mongoose.Schema({
                     required:true
                 },
                 refnum:{
+                    type:String,
+                    required:true
+                },
+                custype:{
+                    type:String,
+                    required:true
+                },
+                destination:{
                     type:String,
                     required:true
                 }

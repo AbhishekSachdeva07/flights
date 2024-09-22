@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Flightticket = ({data,userdata})=>{
+const Flightticket = ({data,userdata,setbookticket})=>{
     
     return(
         <>
@@ -50,6 +50,7 @@ const Flightticket = ({data,userdata})=>{
                                     <div className="right-flight-footer" style={{justifyContent:'center',color:'gray'}}>
                                         <p style={{fontSize:'12px'}}>#RIDE x MATCH</p>&emsp;
                                         <p style={{fontSize:'12px'}}>@{userdata.userData.username}</p>
+                                        <button onClick={()=>setbookticket(true)}>Book Cab / Ask questions related to destination.</button>
                                     </div>
                                 </div>
                             </div>

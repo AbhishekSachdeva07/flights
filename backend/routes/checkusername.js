@@ -4,8 +4,6 @@ import userModel from "../Database/usermodel.js";
 const checkusername = async(req,res)=>{
     const data = req.params;
     const userResponse = {...userDataResponse};
-    console.log(data);
-    console.log("dif");
 
     try{
         const finding = await userModel.findOne({

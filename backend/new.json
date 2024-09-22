@@ -1,0 +1,23 @@
+{
+    "location": "faridkot",
+    "cabsavailable":[
+        {
+            "cabno":"PB04AW7891",
+            "cabtype":"economy",
+            "cabdriver":{
+                "name":"pnchi",
+                "age":"24",
+                "gender":"male"
+            }
+        },
+        {
+            "cabno":"PB74SW9791",
+            "cabtype":"economy",
+            "cabdriver":{
+                "name":"gotyal",
+                "age":"30",
+                "gender":"male"
+            }
+        }
+    ]
+}

@@ -31,10 +31,8 @@ const UserSchema = new mongoose.Schema({
     flightsaccepted:[
         {
             flightid:{
-                flightid:{
-                    type: mongoose.Schema.ObjectId,
-                    required:true
-                }
+                type: mongoose.Schema.ObjectId,
+                required:true
             }
         }
     ]
