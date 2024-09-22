@@ -4,7 +4,7 @@ import axios from "axios";
 const Acceptedusers = ({data,userdata,setanotheruserdata,setchatingdisplay})=>{
     const [flightdata,setflightdata] = useState([]);
     const acceptedusers = async()=>{
-        const getdata = await axios.post(`http://localhost:5000/getusers/${userdata.userData._id}`,data,{
+        const getdata = await axios.post(`https://flights-lmrv.onrender.com/getusers/${userdata.userData._id}`,data,{
             withCredentials:true
         })
         if(getdata.data.flightusersfetched === true){
