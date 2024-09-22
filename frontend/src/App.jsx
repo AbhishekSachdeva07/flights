@@ -41,7 +41,7 @@ function App() {
     useEffect(()=>{
         const checkingtoken = async()=>{
             try{
-                const checktoken = await axios.get('http://localhost:5000/check-for-token',{
+                const checktoken = await axios.get('https://flights-lmrv.onrender.com/check-for-token',{
                     withCredentials:true
                 })
                 
