@@ -159,7 +159,7 @@ const startioconnections = (server) => {
                     messageformat.message = "Great! Wait while we are confirming your bookings.";
                     io.to(socketid).emit("gemini-message",messageformat);
                     await IndividualChat.adddatatodb("gemini", username, messageformat.message,tripid);
-                    const cabbooking = await axios.get(`http://localhost:5000/book-cab/${cityname}/${cabnumber}`,{withCredentials: true});
+                    const cabbooking = await axios.get(`https://flights-lmrv.onrender.com/book-cab/${cityname}/${cabnumber}`,{withCredentials: true});
                     if(cabbooking.data.cabbooked){
                         messageformat.message = `Congratulations🎉🚖. Cab ${cabnumber} has been booked for you. Full details will be shared with you at your mail address i.e. ${email}`;
                         await cabbooked(email,username);
