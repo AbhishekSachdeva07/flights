@@ -74,9 +74,6 @@ function App() {
                 <Route path='/signup/:email' element={<Signup/>}/>
                 <Route path='/welcome/:username' element={<Welcome/>}/>
                 <Route path='/flight/:from/:to/:userid/:flightid' element={<Flightpage/>}/>
-                <Route path='/contactus' element={<Login/>}/>
-                <Route path='/refundpolicy' element={<Login/>}/>
-                <Route path='/termsconditions element={<Login/>}/>
                 <Route path='*' element={<Error/>}/>
             </Routes>
         </>
